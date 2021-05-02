@@ -19,9 +19,11 @@ func main() {
 
 	a, b := swap("hello", "world")
 	fmt.Println(a, b)
+	defer fmt.Println("defer 1 - ", time.Now())
 
 	fmt.Println(sqrt(2))
 
+	defer fmt.Println("defer 2 - ", time.Now())
 	PrintOS()
 }
 
