@@ -18,6 +18,8 @@ func main() {
 
 	a, b := swap("hello", "world")
 	fmt.Println(a, b)
+
+	fmt.Println(sqrt(2))
 }
 
 func add(x, y int) int {
@@ -26,4 +28,13 @@ func add(x, y int) int {
 
 func swap(x, y string) (string, string) {
 	return y, x
+}
+
+const epsilon float64 = 1e-14
+
+func sqrt(x float64) float64 {
+	z := 1.0
+	for ; math.Abs(z*z-x) > epsilon; z -= (z*z - x) / (2 * z) {
+	}
+	return z
 }
