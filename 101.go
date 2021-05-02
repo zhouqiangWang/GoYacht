@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"math"
+	"runtime"
 	"time"
 )
 
@@ -20,6 +21,8 @@ func main() {
 	fmt.Println(a, b)
 
 	fmt.Println(sqrt(2))
+
+	PrintOS()
 }
 
 func add(x, y int) int {
@@ -37,4 +40,17 @@ func sqrt(x float64) float64 {
 	for ; math.Abs(z*z-x) > epsilon; z -= (z*z - x) / (2 * z) {
 	}
 	return z
+}
+
+func PrintOS() {
+	fmt.Print("Go runs on ")
+
+	switch os := runtime.GOOS; os {
+	case "darwin":
+		fmt.Println("OS X.")
+	case "linux":
+		fmt.Println("Linux.")
+	default:
+		fmt.Println(os)
+	}
 }
